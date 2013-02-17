@@ -1,0 +1,259 @@
+<ui:composition template="/template/common.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="content">
+
+		<p:growl id="reg" showDetail="true" life="3000" />
+		<p:panel header="Registration Form">
+
+			<h:form>
+				<p:panelGrid style="font-size: 100% !important; margin-right: 10px;">
+
+					<p:row>
+						<p:column>
+							<h:outputLabel for="uname" value="Username:" />
+						</p:column>
+						<p:column colspan="2">
+							<p:inputText id="uname" required="true" value="" label="Username">
+								<p:tooltip for="uname" value="Type desired username here"
+									showEffect="slide" hideEffect="slide" />
+							</p:inputText>
+						</p:column>
+					</p:row>
+
+					<p:row>
+						<p:column>
+							<h:outputLabel for="email" value="Email:" />
+						</p:column>
+						<p:column colspan="2">
+							<p:inputText id="email" required="true" value="" label="Email">
+								<p:tooltip for="email" value="Type your email id here"
+									showEffect="slide" hideEffect="slide" />
+							</p:inputText>
+						</p:column>
+					</p:row>
+
+					<p:row>
+						<p:column>
+							<h:outputLabel for="pwd1" value="Password:" />
+						</p:column>
+						<p:column colspan="2">
+							<p:password id="pwd1" value="" match="pwd2" label="Password"
+								required="true" />
+						</p:column>
+					</p:row>
+
+					<p:row>
+						<p:column>
+							<h:outputLabel for="pwd2" value="Retype Password:" />
+						</p:column>
+						<p:column colspan="2">
+							<p:password id="pwd2" feedback="false" value=""
+								label="Retype Password" required="true" />
+						</p:column>
+					</p:row>
+
+					<p:row>
+						<p:column>
+							<h:outputLabel for="fname" value="Name:" />
+						</p:column>
+						<p:column>
+							<p:inputText id="fname" required="true" value=""
+								label="First Name">
+								<f:validateLength minimum="2" />
+							</p:inputText>
+							<p:watermark for="fname" value="First Name" />
+						</p:column>
+						<p:column>
+							<p:inputText id="mname" required="false" value=""
+								label="Middle Name" />
+							<p:watermark for="mname" value="Middle Name" />
+						</p:column>
+					</p:row>
+
+					<p:row>
+						<p:column>
+						</p:column>
+						<p:column colspan="2">
+							<p:inputText id="lname" required="true" value=""
+								label="Last Name" />
+							<p:watermark for="lname" value="Last Name" />
+						</p:column>
+					</p:row>
+
+					<p:row>
+						<p:column>
+							<h:outputLabel for="dob" value="Birthday:" />
+						</p:column>
+						<p:column colspan="2">
+							<p:calendar id="dob" effect="slide" navigator="true"
+								pattern="dd/MM/yyyy" />
+						</p:column>
+					</p:row>
+
+					<p:row>
+						<p:column>
+							<h:outputLabel for="state" value="State:" />
+						</p:column>
+						<p:column colspan="2">
+							<p:selectOneMenu effect="slide" id="state" value="">
+								<f:selectItem itemLabel="Select One" itemValue="" />
+								<f:selectItem itemLabel="Option 1" itemValue="1" />
+								<f:selectItem itemLabel="Option 2" itemValue="2" />
+								<f:selectItem itemLabel="Option 3" itemValue="3" />
+							</p:selectOneMenu>
+						</p:column>
+					</p:row>
+
+					<p:row>
+						<p:column>
+							<h:outputLabel for="pin" value="PIN:" />
+						</p:column>
+						<p:column colspan="2">
+							<p:autoComplete id="pin" maxResults="5" minQueryLength="3"
+								maxlength="6" effect="drop" value="#{register.txt}"
+								completeMethod="#{register.suggestion}" />
+							<p:tooltip for="pin" value="Type PIN here" showEffect="slide"
+								hideEffect="slide" />
+						</p:column>
+					</p:row>
+
+					<p:row>
+						<p:column>
+							<h:outputLabel for="ffname" value="Father Name:" />
+						</p:column>
+						<p:column>
+							<p:inputText id="ffname" required="true" value="">
+								<f:validateLength minimum="2" />
+							</p:inputText>
+							<p:watermark for="ffname" value="First Name" />
+						</p:column>
+						<p:column>
+							<p:inputText id="fmname" required="false" value="" />
+							<p:watermark for="fmname" value="Middle Name" />
+						</p:column>
+					</p:row>
+
+					<p:row>
+						<p:column>
+						</p:column>
+						<p:column colspan="2">
+							<p:inputText id="flname" required="true" value="" />
+							<p:watermark for="flname" value="Last Name" />
+						</p:column>
+					</p:row>
+
+					<p:row>
+						<p:column>
+							<h:outputLabel for="uid" value="UID:" />
+						</p:column>
+						<p:column colspan="2">
+							<p:inputText id="uid" required="false" value="" label="UID">
+								<p:tooltip for="uid" value="Type Adhaar UID here"
+									showEffect="slide" hideEffect="slide" />
+							</p:inputText>
+						</p:column>
+					</p:row>
+
+					<p:row>
+						<p:column>
+							<h:outputLabel for="cid" value="Connection No:" />
+						</p:column>
+						<p:column colspan="2">
+							<p:inputText id="cid" required="false" value=""
+								label="Connection No.">
+								<p:tooltip for="cid" value="Type Connection No. here"
+									showEffect="slide" hideEffect="slide" />
+							</p:inputText>
+						</p:column>
+					</p:row>
+
+					<p:row>
+						<p:column>
+							<h:outputLabel for="city" value="City:" />
+						</p:column>
+						<p:column colspan="2">
+							<p:selectOneMenu effect="slide" id="city" value="">
+								<f:selectItem itemLabel="Select One" itemValue="" />
+								<f:selectItem itemLabel="Option 1" itemValue="1" />
+								<f:selectItem itemLabel="Option 2" itemValue="2" />
+								<f:selectItem itemLabel="Option 3" itemValue="3" />
+							</p:selectOneMenu>
+						</p:column>
+					</p:row>
+
+					<p:row>
+						<p:column>
+							<h:outputLabel for="street" value="Street:" />
+						</p:column>
+						<p:column colspan="2">
+							<p:inputText id="street" required="true" value="" label="Street">
+								<p:tooltip for="street" value="Type Street here"
+									showEffect="slide" hideEffect="slide" />
+							</p:inputText>
+						</p:column>
+					</p:row>
+
+				</p:panelGrid>
+
+				<h:panelGrid columns="3" cellpadding="5">
+					<h:outputLabel for="options" value="Sex:" />
+					<p:selectOneRadio required="true" id="options" value="">
+						<f:selectItem itemLabel="Male" itemValue="1" />
+						<f:selectItem itemLabel="Female" itemValue="2" />
+					</p:selectOneRadio>
+				</h:panelGrid>
+
+				<div align="left">
+					<p:selectBooleanCheckbox id="pntc" value="#" />
+					<h:outputLabel for="pntc" id="pnt"
+						value="I agree with the Privacy and Terms."
+						style="cursor: pointer">
+						<p:overlayPanel for="pnt" showEffect="drop" hideEffect="drop"
+							showEvent="mouseover" hideEvent="mousedown">
+							<p:scrollPanel style="width:300px; height:200px;">
+								<h:outputText style="font-size: 100%;"
+									value="Here is  Privacy and Terms.
+                                              Here is  Privacy and Terms.
+                                              Here is  Privacy and Terms.
+                                              Here is  Privacy and Terms.
+                                              Here is  Privacy and Terms.
+                                              Here is  Privacy and Terms.
+                                              Here is  Privacy and Terms.
+                                              Here is  Privacy and Terms.
+                                              Here is  Privacy and Terms.
+                                              " />
+							</p:scrollPanel>
+						</p:overlayPanel>
+					</h:outputLabel>
+				</div>
+
+				<div align="right">
+					<p:commandButton style="margin-right: 10px" id="registerButton"
+						value="Register" update=":reg"
+						actionListener="#{register.register}" />
+				</div>
+
+			</h:form>
+
+		</p:panel>
+
+
+
+		<p:idleMonitor timeout="5000" onidle="idleDialog.show()" />
+		<p:dialog header="Are you here?" resizable="false" showEffect="drop"
+			hideEffect="drop" widgetVar="idleDialog" modal="true" width="350">
+			<h:outputText
+				value="Your session will be expired soon. Do you want to continue ?" />
+			<h:panelGrid columns="2" cellspacing="5">
+				<p:commandButton type="button" value="Yes" />
+				<p:commandButton type="button" value="No, Logout me" />
+			</h:panelGrid>
+		</p:dialog>
+
+	</ui:define>
+</ui:composition>

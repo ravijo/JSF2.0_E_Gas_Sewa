@@ -1,0 +1,30 @@
+<ui:composition template="/template/common.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="content">
+		<p:panel style="margin-bottom: 2px">
+			<p:galleria showFilmstrip="false" showOverlays="true"
+				value="#{gallery.images}" var="image">
+				<p:graphicImage value="/resources/images/galleria/#{image}"
+					title="#{image}" alt="Loading..." />
+				<p:galleriaOverlay title="#{image}">  
+                    Description for #{image} goes here  
+                </p:galleriaOverlay>
+			</p:galleria>
+		</p:panel>
+
+		<p:panel header="We are the best">
+			<h:panelGrid columns="2" cellpadding="10">
+				<p:graphicImage style="width: 80px; height: 80px;"
+					value="/resources/images/godfather/godfather.jpg" />
+				<h:outputText
+					value="The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.   
+                              but given to ruthless violence whenever anything stands against the good of the family." />
+			</h:panelGrid>
+		</p:panel>
+
+	</ui:define>
+</ui:composition>

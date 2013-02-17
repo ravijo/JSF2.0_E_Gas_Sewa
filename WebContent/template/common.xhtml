@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>E Gas Sewa</title>
+	<h:outputStylesheet library="css" name="default.css" />
+</h:head>
+
+<h:body>
+	<div id="header" style="margin: auto; width: 80%;">
+		<p:panel>
+			<div id="logo" style="float: left; width: 10%">
+				<h:link outcome="index">
+					<p:graphicImage style="margin: 2px" alt="Loading..."
+						value="/resources/images/logo.png" />
+				</h:link>
+			</div>
+
+			<div align="right">
+				<ui:include src="/template/rightHeader.xhtml" />
+			</div>
+		</p:panel>
+	</div>
+
+	<div id="menu"
+		style="margin: auto; margin-top: 2px; margin-bottom: 2px; width: 80%;">
+		<h:form>
+			<p:menubar>
+				<p:menuitem value="Home" url="#" />
+
+				<p:submenu label="Services">
+					<p:menuitem value="Service 1" url="#" />
+					<p:menuitem value="Service 2" url="#" />
+				</p:submenu>
+
+				<p:submenu label="Instructions">
+					<p:menuitem value="Instructions 1" url="#" />
+					<p:submenu label="Instructions 2">
+						<p:submenu label="More Instructions 1">
+							<p:menuitem value="More More Instructions 1" url="#" />
+						</p:submenu>
+						<p:menuitem value="More Instructions 2" url="#" />
+					</p:submenu>
+				</p:submenu>
+
+				<p:menuitem value="About Us" url="#" />
+			</p:menubar>
+
+		</h:form>
+
+	</div>
+
+	<div id="middle" style="margin: auto; width: 80%;">
+
+		<div id="left_navi" style="width: 20%; float: left;">
+			<ui:insert name="left">
+				<ui:include src="/template/leftNavi.xhtml" />
+			</ui:insert>
+		</div>
+
+		<div id="content" style="width: 60%; float: left;">
+			<ui:insert name="content"></ui:insert>
+		</div>
+
+		<div id="right_navi" style="width: 20%; float: left">
+			<ui:include src="/template/rightNavi.xhtml" />
+		</div>
+	</div>
+
+	<div id="footer"
+		style="clear: both; text-align: center; margin: auto; width: 80%;">
+		<p:panel header="2012 All rights reserved. Designed by RaKuRi">
+			<h:link value="Home" outcome="index" />
+			<p:spacer width="10px;" />
+			<h:link value="Services" outcome="index" />
+			<p:spacer width="10px;" />
+			<h:link value="About Us" outcome="index" />
+			<p:spacer width="10px;" />
+			<h:link value="Terms and Contiditions" outcome="index" />
+			<p:spacer width="10px;" />
+			<h:link value="Advertising" outcome="index" />
+		</p:panel>
+	</div>
+
+</h:body>
+</html>

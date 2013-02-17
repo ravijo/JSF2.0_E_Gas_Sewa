@@ -1,0 +1,149 @@
+<ui:composition template="/template/common.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="left">
+		<h:form>
+
+			<p:menu type="tiered"
+				style="font-size: 100% !important; margin-bottom: 2px;">
+				<p:submenu label="My Menuitems">
+					<p:menuitem value="Edit Profile" url="#" />
+				</p:submenu>
+				<p:submenu label="Services">
+					<p:menuitem value="Book LPG" />
+					<p:menuitem value="Track LPG" />
+				</p:submenu>
+			</p:menu>
+
+		</h:form>
+
+		<ui:include src="/template/leftNavi.xhtml" />
+
+
+
+
+
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form prependId="false">
+
+			<p:growl id="msgs" />
+
+			<p:panel header="Profile Page">
+
+				<h:panelGrid columns="2" cellspacing="10"
+					style="font-size: 100% !important; margin-right: 10px;">
+
+					<h:outputLabel for="uname" value="Username:" />
+					<h:outputLabel id="uname" value="ravi_joshi">
+						<p:tooltip for="uname" value="You can't change Username"
+							showEffect="slide" hideEffect="slide" />
+					</h:outputLabel>
+
+					<h:outputLabel for="email" value="Email:" />
+					<p:inplace id="email" editor="true">
+						<p:inputText value="#{profile.email}" required="true"
+							label="Email" />
+						<p:tooltip for="email" value="To change email, click on email"
+							showEffect="slide" hideEffect="slide" />
+					</p:inplace>
+
+					<h:outputLabel for="pwd1" value="Password:" />
+					<p:password id="pwd1" value="" match="pwd2" label="Password"
+						required="true" />
+
+					<h:outputLabel for="pwd2" value="Retype Password:" />
+					<p:password id="pwd2" feedback="false" value=""
+						label="Retype Password" required="true" />
+
+					<h:outputLabel for="name" value="Name:" />
+					<h:outputLabel id="name" value="Ravi Prakash Joshi">
+						<p:tooltip for="name" value="You can't change name"
+							showEffect="slide" hideEffect="slide" />
+					</h:outputLabel>
+
+					<h:outputLabel for="dob" value="Birthday:" />
+					<h:outputLabel id="dob" value="1/1/2">
+						<p:tooltip for="dob" value="You can't change Birthday"
+							showEffect="slide" hideEffect="slide" />
+					</h:outputLabel>
+
+					<h:outputLabel for="state" value="State:" />
+					<p:inplace id="state" label="My Current State">
+						<p:selectOneMenu effect="slide" value="">
+							<f:selectItem itemLabel="Select One" itemValue="" />
+							<f:selectItem itemLabel="Option 1" itemValue="1" />
+							<f:selectItem itemLabel="Option 2" itemValue="2" />
+							<f:selectItem itemLabel="Option 3" itemValue="3" />
+						</p:selectOneMenu>
+						<p:tooltip for="state"
+							value="To change State, click on present state"
+							showEffect="slide" hideEffect="slide" />
+					</p:inplace>
+
+					<h:outputLabel for="pin" value="PIN:" />
+					<p:inplace id="pin" label="My Current PIN">
+						<p:autoComplete maxResults="5" minQueryLength="3" maxlength="6"
+							effect="drop" value="#{register.txt}"
+							completeMethod="#{register.suggestion}" />
+						<p:tooltip for="pin" value="To change PIN, click on present PIN"
+							showEffect="slide" hideEffect="slide" />
+					</p:inplace>
+
+					<h:outputLabel for="fname" value="Father Name:" />
+					<h:outputLabel id="fname" value="Papa ka naam">
+						<p:tooltip for="fname" value="You can't change Father Name"
+							showEffect="slide" hideEffect="slide" />
+					</h:outputLabel>
+
+					<h:outputLabel for="uid" value="UID:" />
+					<h:outputLabel id="uid" value="4532421254530232">
+						<p:tooltip for="uid" value="You can't change UID"
+							showEffect="slide" hideEffect="slide" />
+					</h:outputLabel>
+
+					<h:outputLabel for="cid" value="Connection No:" />
+					<p:inputText id="cid" required="false" value=""
+						label="Connection No.">
+						<p:tooltip for="cid" value="Type Connection No. here"
+							showEffect="slide" hideEffect="slide" />
+					</p:inputText>
+
+					<h:outputLabel for="city" value="City:" />
+					<p:inplace id="city" label="My Current City">
+						<p:selectOneMenu effect="slide" value="">
+							<f:selectItem itemLabel="Select One" itemValue="" />
+							<f:selectItem itemLabel="Option 1" itemValue="1" />
+							<f:selectItem itemLabel="Option 2" itemValue="2" />
+							<f:selectItem itemLabel="Option 3" itemValue="3" />
+						</p:selectOneMenu>
+						<p:tooltip for="city"
+							value="To change City, click on present city" showEffect="slide"
+							hideEffect="slide" />
+					</p:inplace>
+
+					<h:outputLabel for="street" value="Street:" />
+					<p:inplace id="street" editor="true">
+						<p:inputText value="#{profile.street}" required="true"
+							label="Street" />
+						<p:tooltip for="street" value="To change Street, click on Street"
+							showEffect="slide" hideEffect="slide" />
+					</p:inplace>
+
+				</h:panelGrid>
+
+
+
+
+
+			</p:panel>
+
+
+		</h:form>
+	</ui:define>
+</ui:composition>

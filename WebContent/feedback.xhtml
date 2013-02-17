@@ -1,0 +1,34 @@
+<ui:composition template="/template/common.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="content">
+
+		<p:growl id="fed" showDetail="false" life="3000" />
+
+		<p:panel header="Feedback form">
+			<h:form>
+				<h:panelGrid columns="2" cellspacing="10">
+
+					<h:outputLabel for="subject" value="Subject:" />
+					<p:inputText id="subject" label="Subject" required="true" value=""
+						maxlength="30" style="width: 200%;" />
+					<h:outputLabel for="body" value="Body:" />
+					<p:inputTextarea id="body" label="Body" required="true" value=""
+						maxlength="200" style="width: 200%;" />
+
+					<p:commandButton value="Submit" update=":fed"
+						actionListener="#{register.register}" />
+				</h:panelGrid>
+			</h:form>
+		</p:panel>
+
+
+
+
+
+	</ui:define>
+</ui:composition>
